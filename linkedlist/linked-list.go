@@ -72,3 +72,12 @@ func (linkedList *LinkedList) average() float64 {
 	average := sum / size
 	return average
 }
+
+// clear method will remove reference of the head and make it nil so the link list size is reduced to zero.
+func (linkedList *LinkedList) clear() {
+	if linkedList.Head == nil {
+		// linked list is already clear and has size zero
+		return
+	}
+	linkedList.Head = nil
+}
