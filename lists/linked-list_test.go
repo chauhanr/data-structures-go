@@ -1,4 +1,4 @@
-package linkedList
+package lists
 
 import (
 	"fmt"
@@ -81,6 +81,64 @@ func TestLinkedListAverageFunc(t *testing.T) {
 		fmt.Printf("average for buildList %v , is %f\n", el, avg)
 		if avg != avgTest.average {
 			t.Errorf("Expected average is %f but got %f", avgTest.average, avg)
+		}
+		ll.clear()
+	}
+}
+
+var testSearchTable = []struct {
+	elements   []int64
+	searchItem int64
+	found      bool
+}{
+	{[]int64{}, 2, false},
+	{[]int64{21, 31, 13, 15, 14}, 13, true},
+	{[]int64{3, 9, 4, 21, 4}, 11, false},
+}
+
+func TestSearchFunc(t *testing.T) {
+	ll := LinkedList{}
+	ll.Initialize()
+	for _, searchSet := range testSearchTable {
+		el := searchSet.elements
+		for _, val := range el {
+			ll.append(val)
+		}
+		item := searchSet.searchItem
+		node := ll.search(item)
+		found := node != nil
+		if found != searchSet.found {
+			t.Errorf("Expected to find %d in set %v but could not find the element", item, el)
+		}
+		ll.clear()
+	}
+}
+
+var testDeleteFuncTable = []struct {
+	elements      []int64
+	deleteItem    int64
+	isDeleted     bool
+	listSizeAfter int64
+}{
+	{[]int64{}, 2, false, 0},
+	{[]int64{21, 31, 13, 15, 14}, 13, true, 4},
+	{[]int64{3, 9, 4, 21, 4}, 11, false, 5},
+	{[]int64{3, 9, 4, 21, 4}, 3, true, 4},
+}
+
+func TestDeleteFunc(t *testing.T) {
+	ll := LinkedList{}
+	ll.Initialize()
+	for _, searchSet := range testDeleteFuncTable {
+		el := searchSet.elements
+		for _, val := range el {
+			ll.append(val)
+		}
+		item := searchSet.deleteItem
+		isDeleted := ll.delete(item)
+		if isDeleted != searchSet.isDeleted || ll.size() != searchSet.listSizeAfter {
+			t.Errorf("Element delete operation for item %d must have isDelete %t but was %t", item, searchSet.isDeleted, isDeleted)
+			t.Logf("size of ll must be %d but was %d", searchSet.listSizeAfter, ll.size())
 		}
 		ll.clear()
 	}

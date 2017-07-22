@@ -1,4 +1,4 @@
-package linkedList
+package lists
 
 //LinkedList is a structure of a node in the linked list.
 type LinkedList struct {
@@ -36,6 +36,41 @@ func (linkedList *LinkedList) size() int64 {
 		ptr = ptr.NextNode
 	}
 	return size
+}
+
+func (linkedList *LinkedList) search(item int64) *Node {
+	if linkedList.Head == nil {
+		return nil
+	}
+	ptr := linkedList.Head
+	for ptr != nil {
+		if ptr.Value == item {
+			return ptr
+		}
+		ptr = ptr.NextNode
+	}
+	return nil
+}
+
+func (linkedList *LinkedList) delete(item int64) bool {
+	searchNode := linkedList.search(item)
+	if searchNode != nil {
+		prev := linkedList.Head
+		ptr := linkedList.Head
+		if ptr == searchNode {
+			linkedList.Head = ptr.NextNode
+			return true
+		}
+		for ptr != searchNode {
+			prev = ptr
+			ptr = ptr.NextNode
+			if ptr == searchNode {
+				prev.NextNode = ptr.NextNode
+				return true
+			}
+		}
+	}
+	return false
 }
 
 func (linkedList *LinkedList) append(value int64) {
