@@ -1,5 +1,7 @@
 package lists
 
+import "errors"
+
 //LinkedList is a structure of a node in the linked list.
 type LinkedList struct {
 	Head *Node
@@ -115,4 +117,39 @@ func (linkedList *LinkedList) clear() {
 		return
 	}
 	linkedList.Head = nil
+}
+
+/**
+function will reverse the linkedlist in O(n) time
+*/
+func (linkedList *LinkedList) Reverse() error {
+	if linkedList.Head == nil {
+		return errors.New("Cannot reverse an empty list")
+	}
+	head := linkedList.Head
+	linkedList.reverseList(head, head.NextNode)
+	// final step make the next node for head a nil
+	head.NextNode = nil
+	return nil
+}
+
+func (linkedList *LinkedList) reverseList(parent *Node, current *Node) {
+	if current == nil {
+		return
+	}
+	linkedList.reverseList(current, current.NextNode)
+	if current.NextNode == nil {
+		linkedList.Head = current
+	}
+	current.NextNode = parent
+}
+
+func (linkedList *LinkedList) AsArray() []int64 {
+	arr := []int64{}
+	curr := linkedList.Head
+	for curr != nil {
+		arr = append(arr, curr.Value)
+		curr = curr.NextNode
+	}
+	return arr
 }

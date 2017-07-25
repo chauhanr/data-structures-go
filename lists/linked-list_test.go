@@ -155,3 +155,32 @@ func TestLinkedListAverageZeroSize(t *testing.T) {
 		t.Errorf("Expected average for a zero linked list is %f, but found %f", 0.0, avg)
 	}
 }
+
+var testReverseStruct = []struct {
+	elements []int64
+	reversed []int64
+}{
+	{[]int64{9, 7, 3, 4, 8, 6}, []int64{6, 8, 4, 3, 7, 9}},
+}
+
+func TestLinkedListReverse(t *testing.T) {
+	ll := LinkedList{}
+	ll.Initialize()
+	for _, reverseSet := range testReverseStruct {
+		elements := reverseSet.elements
+		reversed := reverseSet.reversed
+		for _, value := range elements {
+			ll.append(value)
+		}
+		//fmt.Printf("%v\n", ll.AsArray())
+		ll.Reverse()
+		rev := ll.AsArray()
+		//fmt.Printf("%v\n", rev)
+		for index, value := range rev {
+			if reversed[index] != value {
+				t.Errorf("Element at %d index should be %d but was %d", index, reversed[index], value)
+			}
+		}
+	}
+
+}

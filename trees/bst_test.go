@@ -118,3 +118,46 @@ func TestBSTDeleteNodeFunc(t *testing.T) {
 		}
 	}
 }
+
+var testMinMaxStruct = []struct {
+	elements []int
+	min      int
+	max      int
+}{
+	{[]int{3, 7, 9, 8, 2, 10}, 2, 10},
+	{[]int{3, 7, 9, 8, 5, 6, 4}, 3, 9},
+}
+
+func TestMinMaxFunction(t *testing.T) {
+	tree := BinaryTree{}
+	tree.Initialize()
+
+	_, err := tree.FindMinimumElement()
+	if err == nil {
+		t.Errorf("Empty tree cannot have a min/max element")
+	}
+
+	_, err = tree.FindMaxElement()
+	if err == nil {
+		t.Errorf("Empty tree cannot have a min/max element")
+	}
+
+	for _, testCase := range testMinMaxStruct {
+		tree = BinaryTree{}
+		tree.Initialize()
+		buildTree := testCase.elements
+		minResult := testCase.min
+		maxResult := testCase.max
+		for _, value := range buildTree {
+			tree.Insert(value)
+		}
+		min, _ := tree.FindMinimumElement()
+		if min != minResult {
+			t.Errorf("Minimum element should be %d by the function returned %d", minResult, min)
+		}
+		max, _ := tree.FindMaxElement()
+		if max != maxResult {
+			t.Errorf("Maximum element should be %d by the function returned %d", maxResult, max)
+		}
+	}
+}

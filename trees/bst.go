@@ -157,6 +157,28 @@ func (tree *BinaryTree) DeleteNodeByValue(item int) {
 	}
 }
 
+func (tree *BinaryTree) FindMinimumElement() (int, error) {
+	if tree.Root == nil {
+		return -1, errors.New("Cannot find minimum element on a empty tree")
+	}
+	minElement := tree.Root
+	for minElement.left != nil {
+		minElement = minElement.left
+	}
+	return minElement.Item, nil
+}
+
+func (tree *BinaryTree) FindMaxElement() (int, error) {
+	if tree.Root == nil {
+		return -1, errors.New("Cannot find max element on a empty tree")
+	}
+	maxElement := tree.Root
+	for maxElement.right != nil {
+		maxElement = maxElement.right
+	}
+	return maxElement.Item, nil
+}
+
 func (tree *BinaryTree) deleteLeftMostNodeReturnValue(node *TNode) (int, error) {
 	if node == nil {
 		return -1, errors.New("Cannot find left most node for the current nose as it is nil")
