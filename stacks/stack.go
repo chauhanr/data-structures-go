@@ -59,6 +59,9 @@ func (s *ArrayStack) Pop() (int, error) {
 	if s.length == 0 {
 		return 0, errors.New("Cannot remove elements from an empty stack")
 	}
+	if s.fill == 0 {
+		return 0, errors.New("Cannot remove elements from an empty stack")
+	}
 	s.fill--
 	value := s.stack[s.fill]
 	return value, nil

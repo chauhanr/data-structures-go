@@ -213,3 +213,46 @@ func (tree *BinaryTree) deleteLeftMostNodeReturnValue(node *TNode) (int, error) 
 		return leftMostNodeValue, nil
 	}
 }
+
+// function to compare the two trees
+func CompareBSTs(t1 *BinaryTree, t2 *BinaryTree) bool {
+	if t1 != nil && t2 != nil {
+		if t1.Size() == t2.Size() {
+			//fmt.Printf("Trees sizes are equal and size is %d\n", t1.Size())
+			if t1.Size() != 0 {
+				r1 := t1.Root
+				r2 := t2.Root
+				return compareTreeNodes(r1, r2)
+			} else {
+				return true
+			}
+		} else {
+			//fmt.Printf("Tree sizes are not equal tree 1 size is %d and tree 2 is %d\n", t1.Size(), t2.Size())
+			return false
+		}
+	} else if t1 == nil && t2 == nil {
+		return true
+	} else {
+		return false
+	}
+}
+
+func compareTreeNodes(n1 *TNode, n2 *TNode) bool {
+	if n1 != nil && n2 != nil {
+		if !compareTreeNodes(n1.left, n2.left) {
+			return false
+		}
+		if n1.Item != n2.Item {
+			//fmt.Printf("comparing %d from tree 1 , %d from tree2 \n", n1.Item, n2.Item)
+			return false
+		}
+		if !compareTreeNodes(n1.right, n2.right) {
+			return false
+		}
+		return true
+	} else if n1 == nil && n2 == nil {
+		return true
+	} else {
+		return false
+	}
+}

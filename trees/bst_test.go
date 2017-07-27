@@ -161,3 +161,44 @@ func TestMinMaxFunction(t *testing.T) {
 		}
 	}
 }
+
+var testTreeCompareStruct = []struct {
+	tree1          []int
+	tree2          []int
+	expectedResult bool
+}{
+	{[]int{3, 7, 9, 8, 2, 10}, []int{3, 7, 9, 8, 2, 10}, true},
+	{[]int{4, 7, 9, 8, 2, 10}, []int{4, 7, 9, 8, 3, 10}, false},
+	{[]int{3, 7, 9, 8, 2, 10}, []int{7, 3, 8, 9, 10, 2}, false},
+	{[]int{4, 7, 9, 8, 2, 10}, []int{4, 7, 9, 8, 2, 11}, false},
+	{[]int{3, 7, 9, 8, 2, 10}, []int{7}, false},
+	{[]int{}, []int{}, true},
+}
+
+func TestTreeCompareFunction(t *testing.T) {
+
+	for _, testCompareCase := range testTreeCompareStruct {
+		case1 := testCompareCase.tree1
+		case2 := testCompareCase.tree2
+		tree1 := BinaryTree{}
+		tree1.Initialize()
+		for _, v1 := range case1 {
+			tree1.Insert(v1)
+		}
+		tree2 := BinaryTree{}
+		tree2.Initialize()
+		for _, v2 := range case2 {
+			tree2.Insert(v2)
+		}
+		result := CompareBSTs(&tree1, &tree2)
+		eResult := testCompareCase.expectedResult
+
+		if result != eResult {
+			if result == false {
+				t.Errorf("Trees %v and %v  are equal but result of comparison was false", case1, case2)
+			} else {
+				t.Errorf("Trees %v and %v are not equal but result of comparison was true", case1, case2)
+			}
+		}
+	}
+}
