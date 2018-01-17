@@ -14,11 +14,12 @@ import (
 func  FindCoinCount(cs []int, total int) int{
 	ready := make([]bool,total+1)
 	value := make([]int,total+1)
+	//countSol := make([]int, total+1)
 	noOfCoins := solve(cs, total, ready, value)
-	solCount := make([]int, total+1)
-	count := countSolution(solCount,total, cs)
-	log.Printf("%v", count)
 	//solveI(cs,total)
+	count := countSolutionI(make([]int, total+1), total,cs)
+	//count := countSolution( total,cs)
+	log.Printf("Solution Count %d ", count)
 	return noOfCoins
 }
 
@@ -49,7 +50,8 @@ func  solve(cs []int, total int, ready []bool, value []int) int{
 		return value[total]
 	}
 	for _, coin := range cs{
-		best = min(best,solve(cs,total-coin, ready, value)+1)
+		sol := solve(cs,total-coin, ready, value)
+		best = min(best,sol+1)
 	}
 	ready[total] = true
 	value[total] = best
@@ -68,14 +70,32 @@ func min(best int, solution int) int{
 	return solution
 }
 
-func countSolution(count []int, total int, cs []int) []int{
-	count[0] = 1
-	for x := 1; x <total; x++{
-		for _, coin := range cs {
-			if x - coin >= 0 {
-				count[x] += count[x-coin]
-			}
+func countSolution(total int, cs []int) int {
+	count := 0
+	if total == 0 {
+		return 1
+	}
+	if total <= 0{
+		return math.MaxInt16
+	}
+	for _, c := range cs{
+		sol := countSolution(total-c, cs)
+		if sol != math.MaxInt16{
+			count += sol
 		}
 	}
 	return count
+}
+
+func countSolutionI(count []int, total int, cs []int) int{
+	count[0]=1
+	for x := 1; x<=total; x++ {
+		for _, c := range cs {
+			if x-c >= 0 {
+				count[x] += count[x-c]
+			}
+		}
+	}
+	log.Printf("%v",count)
+	return count[total-1]
 }

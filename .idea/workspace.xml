@@ -2,8 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9208576-9f27-4fd6-82fd-d8d9eb12f640" name="Default" comment="">
+      <change beforePath="" afterPath="$PROJECT_DIR$/algorithms/grid-sum.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/algorithms/grid-sum_test.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/algorithms/longest-subseq.go" />
+      <change beforePath="" afterPath="$PROJECT_DIR$/algorithms/longest-subseq_test.go" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/algorithms/coin-dynamic.go" afterPath="$PROJECT_DIR$/algorithms/coin-dynamic.go" />
-      <change beforePath="$PROJECT_DIR$/algorithms/coin-dynamic_test.go" afterPath="$PROJECT_DIR$/algorithms/coin-dynamic_test.go" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -14,14 +18,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="coin-dynamic.go" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/algorithms/coin-dynamic.go">
+      <file leaf-file-name="grid-sum.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/algorithms/grid-sum.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1326">
-              <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
-              <folding>
-                <element signature="e#20#45#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-98">
+              <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -44,6 +46,10 @@
       <list>
         <option value="$PROJECT_DIR$/algorithms/coin-dynamic_test.go" />
         <option value="$PROJECT_DIR$/algorithms/coin-dynamic.go" />
+        <option value="$PROJECT_DIR$/algorithms/longest-subseq_test.go" />
+        <option value="$PROJECT_DIR$/algorithms/longest-subseq.go" />
+        <option value="$PROJECT_DIR$/algorithms/grid-sum_test.go" />
+        <option value="$PROJECT_DIR$/algorithms/grid-sum.go" />
       </list>
     </option>
   </component>
@@ -240,21 +246,57 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/algorithms/coin-dynamic.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="20" column="6" lean-forward="false" selection-start-line="20" selection-start-column="6" selection-end-line="20" selection-end-column="6" />
+          <folding>
+            <element signature="e#20#45#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/algorithms/coin-dynamic_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="676">
-          <caret line="49" column="24" lean-forward="true" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
+        <state relative-caret-position="85">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="45" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/algorithms/coin-dynamic.go">
+    <entry file="file://$PROJECT_DIR$/algorithms/longest-subseq_test.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1326">
-          <caret line="78" column="5" lean-forward="true" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+        <state relative-caret-position="276">
+          <caret line="21" column="5" lean-forward="true" selection-start-line="21" selection-start-column="5" selection-end-line="21" selection-end-column="5" />
           <folding>
-            <element signature="e#20#45#0" expanded="true" />
+            <element signature="e#20#36#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algorithms/longest-subseq.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="0" lean-forward="true" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algorithms/grid-sum_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="35" column="19" lean-forward="true" selection-start-line="35" selection-start-column="19" selection-end-line="35" selection-end-column="19" />
+          <folding>
+            <element signature="e#20#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/algorithms/grid-sum.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-98">
+          <caret line="1" column="0" lean-forward="true" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
