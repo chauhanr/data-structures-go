@@ -1,16 +1,16 @@
-package algorithms
+package sort
 
 import (
 	"testing"
 )
 
-var sortTests = []struct{
-	arr []int64
+var sortTests = []struct {
+	arr       []int64
 	sortedArr []int64
 }{
 	{
 		[]int64{9, 7, 6, 5, 2, 1},
-		[]int64{1,2,5,6,7,9},
+		[]int64{1, 2, 5, 6, 7, 9},
 	},
 	{
 		[]int64{-9, 9, 3, -10, -12},
@@ -22,10 +22,10 @@ var sortTests = []struct{
 	},
 }
 
-func TestBubbleSort(t *testing.T){
+func TestBubbleSort(t *testing.T) {
 	for _, tc := range sortTests {
 		sortedResult := BubbleSort(tc.arr)
-		for i, x :=range *sortedResult {
+		for i, x := range *sortedResult {
 			y := tc.sortedArr[i]
 			if x != y {
 				t.Errorf("Values do not match expected %d but got %d", y, x)
@@ -34,11 +34,11 @@ func TestBubbleSort(t *testing.T){
 	}
 }
 
-func TestMergeSort(t *testing.T){
+func TestMergeSort(t *testing.T) {
 	for _, tc := range sortTests {
 		sortedResult := MergeSort(tc.arr, 0, len(tc.arr)-1)
 		printArray(*sortedResult)
-		for i, x :=range *sortedResult {
+		for i, x := range *sortedResult {
 			y := tc.sortedArr[i]
 			if x != y {
 				t.Errorf("Values do not match expected %d but got %d", y, x)
@@ -55,4 +55,3 @@ func TestMergeSort(t *testing.T){
 	log.Printf("%s", strings.Join(strArr, ", "))
 
 }*/
-
