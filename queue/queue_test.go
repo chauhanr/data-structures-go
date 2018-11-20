@@ -99,3 +99,20 @@ func TestEmptyQueueFunctionality(t *testing.T) {
 		fmt.Printf("%s\n", err.Error())
 	}
 }
+
+func TestPrintQueue(t *testing.T) {
+	q := Queue{}
+	q.Initialize(4)
+	bQueue := [3]int{1, 2, 3}
+
+	for _, e := range bQueue {
+		q.Enqueue(e)
+	}
+
+	ret := q.PrintQueue()
+	if ret != 0 {
+		t.Errorf("Queue should have printed values but did not")
+	} else {
+		t.Logf("Queue printed the values sucessfully")
+	}
+}

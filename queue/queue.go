@@ -1,6 +1,9 @@
 package queue
 
-import "errors"
+import (
+	"errors"
+	"fmt"
+)
 
 type Queue struct {
 	Head *QNode
@@ -97,6 +100,18 @@ func (queue *Queue) Dequeue() (int, error) {
 	}
 	queue.fill--
 	return tail.Value, nil
+}
+
+func (queue *Queue) PrintQueue() int {
+	if !queue.isEmpty() {
+		head := queue.Head
+		for head != nil {
+			fmt.Printf("%d ", head.Value)
+			head = head.NextNode
+		}
+		return 0
+	}
+	return -1
 }
 
 /**
